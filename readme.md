@@ -62,10 +62,10 @@ Created workload identity pool provider [my-provider].
 create a new IAM service account on your google project.
 
 ```
-gcloud iam service-accounts add-iam-policy-binding "97359446200-compute@developer.gserviceaccount.com" \
+gcloud iam service-accounts add-iam-policy-binding "my-service-account@deno-app-368305.iam.gserviceaccount.com" \
   --project="deno-app-368305" \
   --role="roles/iam.workloadIdentityUser" \
-  --member="serviceAccount:97359446200-compute@developer.gserviceaccount.com"
+  --member="principalSet://iam.googleapis.com/projects/97359446200/locations/global/workloadIdentityPools/my-pool/attribute.repository/mycompany/myrepo"
 ```
 
 https://cloud.google.com/sdk/gcloud/reference/iam/service-accounts/add-iam-policy-binding
@@ -75,3 +75,4 @@ https://cloud.google.com/sdk/gcloud/reference/iam/service-accounts/add-iam-polic
 For reference:
 https://github.com/google-github-actions/example-workflows/blob/main/workflows/deploy-cloudrun/cloudrun-docker.yml
 
+https://alwaysupalwayson.com/posts/2022/01/workload-identity-federation/
